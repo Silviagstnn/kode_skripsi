@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Sistem Tanya Jawab PT Asabri</title>
+</head>
+<body>
+    <div class="chatbot-container">
+        <h1>Sistem Tanya Jawab Layanan PT Asabri (Persero)</h1>
+        <form action="/hasil" method="post">
+            <input type="text" name="user_input" value="{{ user_input }}" placeholder="Masukkan pertanyaan ada disini...." required>
+            <input type="submit" value="Kirim">
+        </form>
+        
+        <div class="kotakRespon">
+            {% if response %}
+            <p><strong>Bot:</strong> {{ response }}</p>
+            {% endif %}
+        </div>
+    </div>
